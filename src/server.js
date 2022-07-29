@@ -1,6 +1,6 @@
-
+require('dotenv').config();
 import express from 'express';
-import morgan from 'morgan';
+// import morgan from 'morgan';
 import session from 'express-session';
 import store from 'session-file-store';
 // import Checklist from './components/checklist/Checklist';
@@ -8,16 +8,13 @@ import indexRouter from './routes/indexRouter';
 import { router as listRouter } from './routes/listRouter';
 import userRouter from './routes/userRouter';
 
-require ('dotenv').config();
-
-
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 const FileStore = store(session);
 
 app.use(express.static('public'));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
